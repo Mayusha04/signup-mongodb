@@ -10,10 +10,14 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
- mongoose.connect('mongodb://localhost:27017/mydb',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+//  mongoose.connect('mongodb://localhost:27017/mydb',{
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+const DB = 'mongodb+srv://mounika:test@cluster1.tpuga.mongodb.net/signuppage?retryWrites=true&w=majority';
+mongoose.connect(DB).then(() => {
+    console.log(`connection successful`);
+}).catch((err) => console.log(`no connection`));
 
 
 var db = mongoose.connection;
